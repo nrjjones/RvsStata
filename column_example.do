@@ -1,8 +1,6 @@
-
 **** Place before loop; 
 
 * Initialize excel sheet; 
-
 
 local results = "$JNLGWS/table_test1.xls";
 putexcel set "`results'", replace;
@@ -27,11 +25,12 @@ putexcel
 	Q1=("TT7")
 	R1=("TT8")
 	S1=("TT9")
-	T1=("TT10")
 	using "`results'", sheet("Page1") modify;
 
-	
-	
+*** End of section before loop;
+
+
+
 *** Put inside loop;	
 	
 * Writing rows to table; 	
@@ -70,16 +69,13 @@ putexcel
 		ttest dead=pmig;
 		putexcel P`cell'=(r(t)) using "`results'", sheet("Page1") modify;
 	* TT7;
-		ttest dead=div;
+		ttest div=pmig;		
 		putexcel Q`cell'=(r(t)) using "`results'", sheet("Page1") modify;
 	* TT8;
-		ttest div=pmig;		
+		ttest pimg=pdmg;
 		putexcel R`cell'=(r(t)) using "`results'", sheet("Page1") modify;
 	* TT9;
-		ttest pimg=pdmg;
-		putexcel S`cell'=(r(t)) using "`results'", sheet("Page1") modify;
-	* TT10;
 		ttest mmg=fmg;
-		putexcel T`cell'=(r(t)) using "`results'", sheet("Page1") modify;
+		putexcel S`cell'=(r(t)) using "`results'", sheet("Page1") modify;
 		
 		
